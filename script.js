@@ -31,13 +31,43 @@ function getUserChoice() {
             return getUserChoice();
         }
     } catch (err) {
-        alert("error" + err.message);
+        console.log("error" + err.message);
     }
 }
 
 function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        console.log("Its a Tie!");
+        return;
+    }
 
+    if(humanChoice === 'rock') {
+        if(computerChoice === 'scissors'){
+            console.log(`You win! ${humanChoice} beats ${computerChoice}`)
+        } else {
+            console.log(`You lose! ${humanChoice} loses to ${computerChoice}`)
+        }
+    }
+    else if (humanChoice === 'paper') {
+        if(computerChoice === 'rock') {
+            console.log(`You win! ${humanChoice} beats ${computerChoice}`)
+        } else {
+            console.log(`You lose! ${humanChoice} loses to ${computerChoice}`)
+        }
+    }
+
+    else if (humanChoice === 'scissors') {
+        if(computerChoice === 'paper') {
+            console.log(`You win! ${humanChoice} beats ${computerChoice}`)
+        } else {
+            console.log(`You lose! ${humanChoice} loses to ${computerChoice}`)
+        }
+    }
 }
 
 const humanChoice = getUserChoice();
 const computerChoice = getComputerChoice();
+
+playRound(humanChoice, computerChoice);
+
+function playGame()
