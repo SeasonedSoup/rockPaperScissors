@@ -44,30 +44,53 @@ function playRound(humanChoice, computerChoice) {
     if(humanChoice === 'rock') {
         if(computerChoice === 'scissors'){
             console.log(`You win! ${humanChoice} beats ${computerChoice}`)
+            playerScore++;
+
         } else {
             console.log(`You lose! ${humanChoice} loses to ${computerChoice}`)
+            computerScore++;
         }
     }
     else if (humanChoice === 'paper') {
         if(computerChoice === 'rock') {
             console.log(`You win! ${humanChoice} beats ${computerChoice}`)
+            playerScore++;
+
         } else {
             console.log(`You lose! ${humanChoice} loses to ${computerChoice}`)
+            computerScore++;
         }
     }
 
     else if (humanChoice === 'scissors') {
         if(computerChoice === 'paper') {
             console.log(`You win! ${humanChoice} beats ${computerChoice}`)
+            playerScore++;
+        
         } else {
             console.log(`You lose! ${humanChoice} loses to ${computerChoice}`)
+            computerScore++;
         }
     }
 }
 
-const humanChoice = getUserChoice();
-const computerChoice = getComputerChoice();
 
-playRound(humanChoice, computerChoice);
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        let humanChoice = getUserChoice();
+        let computerChoice = getComputerChoice();
+        playRound(humanChoice, computerChoice);
+        console.log(`Computer - ${computerScore} & Player - ${playerScore}`);
+    }
+    if (computerScore > playerScore) {
+        console.log("Computer is the total winner!");
+    } 
+    else if (computerScore < playerScore) {
+        console.log("You are the winner!");
+    }
+    else {
+        console.log("Its a tie!");
+    }
+}
 
-function playGame()
+playGame();
