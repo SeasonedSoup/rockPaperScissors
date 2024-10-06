@@ -1,5 +1,8 @@
-computerScore = 0;
-playerScore = 0;
+let computerScore = 0;
+let playerScore = 0;
+
+const userScore =  document.querySelector(".userScore");
+const compScore = document.querySelector(".compScore");
 
 
 function getComputerChoice() {
@@ -28,15 +31,13 @@ buttons.forEach((button) => {
 })
 
 const div = document.querySelector("div")
-const userScore =  document.querySelector(".userScore")
-const compScore = document.querySelector(".compScore")
-
 
 function playRound(humanChoice, computerChoice) {
     let resultMsg = '';
     
     if (humanChoice === computerChoice) {
         resultMsg = ("Its a Tie!");
+    
     } else {
 
         if(humanChoice === 'rock') {
@@ -49,6 +50,7 @@ function playRound(humanChoice, computerChoice) {
                 computerScore++;
             }
         }
+        
         else if (humanChoice === 'paper') {
             if(computerChoice === 'rock') {
                 resultMsg = (`You win! ${humanChoice} beats ${computerChoice}`)
@@ -71,13 +73,9 @@ function playRound(humanChoice, computerChoice) {
             }
         }
     }
+    
     div.textContent = resultMsg;
+    userScore.textContent = (`User's Score: ${playerScore}`);
+    compScore.textContent = (`Computer's Score: ${computerScore}`);
 }
 
-
-
-
-
-const rock = document.querySelector("#rock")
-const paper = document.querySelector("#paper")
-const scissors = document.querySelector("#scissors")
