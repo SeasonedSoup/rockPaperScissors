@@ -19,21 +19,16 @@ function getComputerChoice() {
     }
 }
 
-function getUserChoice() {
-    try {
-        const validChoice = ['rock', 'paper', 'scissors']
-        let answer = prompt("Choose between rock, paper, scissors: ").toLowerCase().trim();
-        if (validChoice.includes(answer)) {
-            console.log(answer);
-            return answer;
-        } else { 
-            console.log("Invalid answer that is not chosen between rock, paper,scissors");
-            return getUserChoice();
-        }
-    } catch (err) {
-        console.log("error" + err.message);
-    }
-}
+const buttons = document.querySelectorAll("button")
+
+buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+        const humanHand = event.target.dataset.answer
+        const computerHand = getComputerChoice();
+        playRound(humanHand, computerHand);
+    })
+})
+
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
@@ -74,3 +69,10 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+
+
+
+
+const rock = document.querySelector("#rock")
+const paper = document.querySelector("#paper")
+const scissors = document.querySelector("#scissors")
