@@ -74,23 +74,3 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-        let humanChoice = getUserChoice();
-        let computerChoice = getComputerChoice();
-        playRound(humanChoice, computerChoice);
-        console.log(`Computer - ${computerScore} & Player - ${playerScore}`);
-    }
-    if (computerScore > playerScore) {
-        console.log("Computer is the total winner!");
-    } 
-    else if (computerScore < playerScore) {
-        console.log("You are the winner!");
-    }
-    else {
-        console.log("Its a tie!");
-    }
-}
-
-playGame();
