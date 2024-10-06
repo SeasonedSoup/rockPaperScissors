@@ -75,7 +75,26 @@ function playRound(humanChoice, computerChoice) {
     }
     
     div.textContent = resultMsg;
-    userScore.textContent = (`User's Score: ${playerScore}`);
-    compScore.textContent = (`Computer's Score: ${computerScore}`);
+    userScore.textContent = `User's Score: ${playerScore}`;
+    compScore.textContent = `Computer's Score: ${computerScore}`;
+
+    if (playerScore === 5) {
+        alert("You are the winner congratulations");
+        resetGame();
+    }
+    
+    if (computerScore === 5) {
+        alert("Computer is the winner better luck next time!");
+        resetGame();
+    }
 }
 
+
+
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    userScore.textContent = `User's Score: ${playerScore}`;
+    compScore.textContent = `Computer's Score: ${computerScore}`;
+    div.textContent = "Rematch?"
+}
